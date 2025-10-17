@@ -1,63 +1,61 @@
-
-
-@section('content')
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Vendor - Tiketmu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for the dashboard */
-        body {
-            background-color: #f8f9fa;  /* Light gray for overall page */
-        }
-        .dashboard-container {
-            background-color: #FFBF00;  /* Yellow-orange as the main background */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Add some shadow for a cool effect */
-            color: #fff;  /* White text for contrast on yellow-orange */
-        }
-        .blue-accent {
-            color: #007BFF;  /* Blue for text and accents */
-        }
-        .btn-blue {
-            background-color: #007BFF;  /* Blue buttons */
-            border-color: #007BFF;
-            color: #fff;
-        }
-        .btn-blue:hover {
-            background-color: #0056b3;  /* Darker blue on hover */
-            border-color: #0056b3;
-        }
-        /* Add more styles as needed for a keren look */
+        body { font-family: 'Poppins', sans-serif; }
     </style>
+</head>
+<body class="bg-gray-100 flex h-screen">
 
-    <div class="container mt-5">
-        <div class="dashboard-container">
-            <h1 class="blue-accent">Selamat Datang di Dashboard Admin</h1>  @endsection
-            <p>Ini adalah panel admin Anda yang keren dengan warna kuning-oranye dan biru. Anda bisa menambahkan fitur seperti grafik, tabel, dan pengelolaan data di sini.</p>
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-lg">
+        <div class="p-6">
+            <h1 class="text-2xl font-bold text-blue-900">Tiketmu Vendor</h1>
+        </div>
+        <nav class="mt-6">
+            <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition rounded">Dashboard</a>
+            <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition rounded">Pesanan</a>
+            <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition rounded">Produk / Layanan</a>
+            <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition rounded">Profil</a>
+            <form method="POST" action="{{ route('logout') }}" class="mt-6 px-6">
+                @csrf
+                <button type="submit" class="w-full py-2 bg-red-500 text-white rounded hover:bg-red-600 transition">Logout</button>
+            </form>
+        </nav>
+    </aside>
 
-            <!-- Example of a cool card section -->
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <div class="card bg-light p-3 text-center">
-                        <h5 class="blue-accent">Total Pengguna</h5>
-                        <p>{{ \App\Models\User::count() }}</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-light p-3 text-center">
-                        <h5 class="blue-accent">Postingan Terbaru</h5>
-                        <p>10</p>  <!-- You can replace this with dynamic data -->
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-light p-3 text-center">
-                        <h5 class="blue-accent">Laporan</h5>
-                        <p>5</p>
-                    </div>
-                </div>
+    <!-- Main Content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Selamat Datang, Vendor!</h2>
+
+        <div class="grid grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
+                <h3 class="text-lg font-medium text-gray-700">Pesanan Hari Ini</h3>
+                <p class="text-2xl font-bold mt-2 text-green-600">12</p>
             </div>
 
-            <!-- Add a button with blue style -->
-            <div class="mt-4">
-                <a href="#" class="btn btn-blue">Lihat Laporan Lengkap</a>
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
+                <h3 class="text-lg font-medium text-gray-700">Produk Aktif</h3>
+                <p class="text-2xl font-bold mt-2 text-blue-900">8</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
+                <h3 class="text-lg font-medium text-gray-700">Pendapatan</h3>
+                <p class="text-2xl font-bold mt-2 text-yellow-600">Rp 5.250.000</p>
             </div>
         </div>
-    </div>
+
+        <!-- Ringkasan -->
+        <div class="mt-8 bg-white p-6 rounded-xl shadow">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">Ringkasan Vendor</h3>
+            <p class="text-gray-600">Di sini Anda dapat menampilkan grafik penjualan, laporan pesanan, atau update produk terbaru.</p>
+        </div>
+    </main>
+
+</body>
+</html>

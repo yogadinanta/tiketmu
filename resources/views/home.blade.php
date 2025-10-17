@@ -53,6 +53,11 @@
                     <img src="https://assets.loket.com/images/ss/1758095817_zV3svk.png" alt="Promo 2"
                         class="w-full h-auto object-cover rounded-xl">
                 </div>
+
+                <div class="swiper-slide">
+                    <img src=" https://assets.loket.com/images/ss/1758513771_nHbUKp.png" alt="Promo 2"
+                        class="w-full h-auto object-cover rounded-xl">
+                </div>
             </div>
 
             <!-- Pagination -->
