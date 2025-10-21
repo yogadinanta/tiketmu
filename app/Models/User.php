@@ -2,28 +2,30 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Atribut yang bisa diisi mass assignment.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
-protected $fillable = ['name', 'email', 'password', 'role'];
-
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'role',
+    ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Atribut yang disembunyikan saat serialisasi.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -31,13 +33,20 @@ protected $fillable = ['name', 'email', 'password', 'role'];
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Atribut yang perlu dikonversi otomatis.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
-   protected $casts = [
-    'email_verified_at' => 'datetime',
-    // 'password' => 'hashed', // opsional, cukup hash di controller
-];
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        // 'password' => 'hashed', // aktifkan jika mau hashing otomatis
+    ];
 
+    /**
+     * Relasi ke tabel saldo vendor.
+     */
+    public function vendorBalance()
+    {
+        return $this->hasOne(VendorBalance::class, 'user_id');
+    }
 }

@@ -55,8 +55,8 @@ Route::get('/dash-admin', function () {
 
 // ADMIN
 Route::middleware(['role:admin'])->group(function () {
-    Route::get('/dash-admin', function () {
-        return view('dash-admin');
+    Route::get('admin.dash-admin', function () {
+        return view('admin.dash-admin');
     })->name('admin.dashboard');
 });
 
@@ -71,5 +71,5 @@ Route::middleware(['role:vendor'])->group(function () {
 Route::middleware(['role:user'])->group(function () {
     Route::get('/home', function () {
         return view('home');
-    })->name('user.home');
+    })->name('home');
 });
