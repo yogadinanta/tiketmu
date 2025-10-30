@@ -1033,10 +1033,11 @@ body {
 }
 
 .menu-toggle {
-  background-image: url(../img/svg/Bulk/Menu-toggle-white.svg);
+  background-image: url(/assets/img/svg/Bulk/Menu-toggle-white.svg);
   width: 24px;
   height: 24px;
 }
+
 
 .menu-toggle--gray {
   background-image: url(../img/svg/Bulk/Menu-toggle-gray.svg);
@@ -1051,13 +1052,13 @@ body {
 }
 
 .document {
-  background-image: url(../img/svg/Bulk/Document-white.svg);
+  background-image: url(/assets/img/svg/Bulk/Document-white.svg);
   width: 24px;
   height: 24px;
 }
 
 .folder {
-  background-image: url(../img/svg/Bulk/Folder-white.svg);
+  background-image: url(/assets/img/svg/Bulk/Folder-white.svg);
   width: 24px;
   height: 24px;
 }
@@ -1069,7 +1070,7 @@ body {
 }
 
 .image {
-  background-image: url(../img/svg/Bulk/Image-white.svg);
+  background-image: url(/assets/img/svg/Bulk/Image-white.svg);
   width: 24px;
   height: 24px;
 }

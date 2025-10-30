@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\EventController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +28,10 @@ Route::get('/register', [RegisterController::class, 'show'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
 
 
-Route::get('/events', [EventController::class, 'index'])->name('events.index');
+
+
+
+
 
 // ============================
 // DASHBOARD ROUTES (Role Based)
@@ -36,9 +39,9 @@ Route::get('/events', [EventController::class, 'index'])->name('events.index');
 
 // ADMIN
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/dash-admin', function () {
-        return view('admin.dash-admin');
-    })->name('admin.dashboard');
+    Route::get('/dash-admin', [UserController::class, 'index'])->name('admin.dashboard');
+     Route::get('/admin/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
+       Route::get('/admin/users/{id}/delete', [UserController::class, 'destroy'])->name('admin.users.delete');
 });
 
 // VENDOR

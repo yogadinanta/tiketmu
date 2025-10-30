@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tiketmu - Hero Section</title>
+  <title>Tiketmu - Get Your Local Event Ticket</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="{{ asset('assets/icon/icon.svg') }}">
 
@@ -20,7 +20,6 @@
 
 <body x-data="{ open: false }" class="bg-white text-gray-800">
   @include('layouts.header')
-
 
   
 <section class="w-full py-10">
