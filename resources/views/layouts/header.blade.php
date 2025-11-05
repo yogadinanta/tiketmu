@@ -35,10 +35,23 @@
         </svg>
       </button>
 
-      <!-- Desktop Button -->
-      <a href="/login" class="hidden md:inline bg-[#3E89FF] text-[#ffffff] font-semibold px-5 py-2.5 rounded-full shadow-md hover:bg-yellow-400 transition">
-        Login Tiketmu
-      </a>
+    <!-- Tombol Login / Nama User -->
+@guest
+  <!-- Kalau user belum login -->
+  <a href="/login"
+     class="hidden md:inline bg-[#3E89FF] text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:bg-yellow-400 transition">
+    Login Tiketmu
+  </a>
+@endguest
+
+@auth
+  <!-- Kalau user sudah login -->
+  <button disabled
+     class="hidden md:inline bg-gray-200 text-gray-700 font-semibold px-5 py-2.5 rounded-full shadow-md cursor-not-allowed">
+    {{ Auth::user()->name }}
+  </button>
+@endauth
+
     </div>
   </div>
 
