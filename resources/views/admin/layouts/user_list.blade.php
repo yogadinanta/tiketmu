@@ -19,15 +19,71 @@
         <td>{{ $user->id }}</td>
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
-        <td>
-          @if($user->role === 'admin')
-            <span class="badge-active">Admin</span>
-          @elseif($user->role === 'vendor')
-            <span class="badge-pending">Vendor</span>
-          @else
-            <span class="badge-success">User</span>
-          @endif
-        </td>
+       <td>
+  <select onchange="updateRole(this, '{{ $user->id }}')" class="form-select p-1 rounded border-gray-300">
+    <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
+    <option value="vendor" {{ $user->role == 'vendor' ? 'selected' : '' }}>Vendor</option>
+    <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
+  </select>
+</td>
+<style>
+  .form-select {
+  background-color: #f9fafb;
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+</style>
+
+<script>
+  // Fungsi konfirmasi dan update role via AJAX
+  function updateRole(selectElement, userId) {
+    const newRole = selectElement.value;
+
+    Swal.fire({
+      title: 'Ubah Role?',
+      text: `Yakin ingin mengubah role menjadi "${newRole}"?`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Ya, ubah!',
+      cancelButtonText: 'Batal',
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`/admin/users/update-role/${userId}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+          },
+          body: JSON.stringify({ role: newRole })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            Swal.fire({
+              title: 'Berhasil!',
+              text: data.message,
+              icon: 'success',
+              timer: 1500,
+              showConfirmButton: false
+            });
+          } else {
+            Swal.fire('Gagal!', data.message, 'error');
+          }
+        })
+        .catch(() => {
+          Swal.fire('Error!', 'Terjadi kesalahan server.', 'error');
+        });
+      } else {
+        // Kembalikan ke role sebelumnya jika dibatalkan
+        selectElement.value = selectElement.getAttribute('data-original') || '{{ $user->role }}';
+      }
+    });
+  }
+</script>
+
         <td>{{ $user->created_at->format('d-m-Y H:i') }}</td>
         <td>
           <span class="p-relative">

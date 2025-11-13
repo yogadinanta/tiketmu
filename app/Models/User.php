@@ -20,6 +20,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'profile_photo',
     ];
 
     /**
@@ -49,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(VendorBalance::class, 'user_id');
     }
+    public function balance()
+{
+    return $this->hasOne(Balance::class, 'user_id');
+}
+
 }

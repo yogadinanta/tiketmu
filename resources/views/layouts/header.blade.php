@@ -25,35 +25,46 @@
       </nav>
     </div>
 
-    <!-- Right: Button -->
-    <div class="flex items-center space-x-4">
-      <!-- Hamburger Button (Mobile) -->
-      <button @click="open = !open" class="md:hidden text-[#0E234B] focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+  <!-- Right: Button -->
+<div class="flex items-center space-x-4">
+  <!-- Hamburger Button (Mobile) -->
+  <button @click="open = !open" class="md:hidden text-[#0E234B] focus:outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- Tombol Login / Nama User / Logout -->
+  @guest
+    <!-- Kalau user belum login -->
+    <a href="/login"
+       class="hidden md:inline bg-[#3E89FF] text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:bg-yellow-400 transition">
+      Login Tiketmu
+    </a>
+  @endguest
+
+  @auth
+    <!-- Kalau user sudah login -->
+    <div class="hidden md:flex items-center space-x-3">
+      <!-- Nama User -->
+      <button disabled
+        class="bg-gray-200 text-gray-700 font-semibold px-5 py-2.5 rounded-full shadow-md cursor-not-allowed">
+        {{ Auth::user()->name }}
       </button>
 
-    <!-- Tombol Login / Nama User -->
-@guest
-  <!-- Kalau user belum login -->
-  <a href="/login"
-     class="hidden md:inline bg-[#3E89FF] text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:bg-yellow-400 transition">
-    Login Tiketmu
-  </a>
-@endguest
-
-@auth
-  <!-- Kalau user sudah login -->
-  <button disabled
-     class="hidden md:inline bg-gray-200 text-gray-700 font-semibold px-5 py-2.5 rounded-full shadow-md cursor-not-allowed">
-    {{ Auth::user()->name }}
-  </button>
-@endauth
-
+      <!-- Tombol Logout -->
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit"
+          class="bg-red-500 text-white font-semibold px-4 py-2.5 rounded-full shadow-md hover:bg-red-600 transition">
+          Logout
+        </button>
+      </form>
     </div>
-  </div>
+  @endauth
+</div>
+
 
   <!-- Mobile Menu -->
   <div x-show="open" x-transition class="md:hidden bg-white border-t border-gray-200 px-6 py-4 space-y-3 text-[#0E234B] text-[15px] font-semibold">

@@ -6,12 +6,12 @@
     <title>Dashboard Vendor - Tiketmu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- Font Awesome 6.6.0 CDN -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-          integrity="sha512-KuCw6qIIBpZ9KxOKL4j4zjQeHnEgbJvAzgO4IMUWRN9k7G+WXwl38WZ2r9Kgfj/5RmEoLqQpxTjX36Q0yRr9BA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer" />
+<!-- Font Awesome 6.6.0 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+          
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -36,21 +36,25 @@
                 <i class="fa-solid fa-tachometer-alt w-5 mr-3 text-blue-700"></i>
                 Dashboard
             </a>
-            <a href="#"
-               class="flex items-center py-3 px-6 text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition rounded">
-                <i class="fas fa-receipt w-5 mr-3 text-blue-700"></i>
-                Pesanan
-            </a>
+<a href="{{ route('admin.layout.history') }}"
+   id="linkRiwayat"
+   class="flex items-center py-3 px-6 text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition rounded">
+   <i class="fas fa-receipt w-5 mr-3 text-blue-700"></i>
+   Riwayat
+</a>
+
+
             <a href="#"
                class="flex items-center py-3 px-6 text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition rounded">
                 <i class="fas fa-box-open w-5 mr-3 text-blue-700"></i>
                 Produk / Layanan
             </a>
-            <a href="#"
-               class="flex items-center py-3 px-6 text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition rounded">
-                <i class="fas fa-user w-5 mr-3 text-blue-700"></i>
-                Profil
-            </a>
+<a href="{{ route('profile.edit') }}"
+   class="flex items-center py-3 px-6 text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition rounded">
+    <i class="fas fa-user w-5 mr-3 text-blue-700"></i>
+    Profil
+</a>
+
         </nav>
     </div>
 
@@ -89,35 +93,16 @@ document.getElementById('logoutButton').addEventListener('click', function (e) {
 });
 </script>
 
+<main class="flex-1 p-8 overflow-y-auto" id="mainContent">
+  <h2 class="text-3xl font-semibold text-gray-800 mb-6">
+    Selamat Datang, {{ Auth::user()->name }}!
+  </h2>
 
-    <!-- Main Content -->
-    <main class="flex-1 p-8 overflow-y-auto">
-        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Selamat Datang, Vendor!</h2>
+  <!-- Konten default: Form tambah event -->
+  @include('admin.layouts.add_event')
+</main>
 
-        <div class="grid grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
-                <h3 class="text-lg font-medium text-gray-700">Saldo Akun</h3>
-                <p class="text-2xl font-bold mt-2 text-green-600">Rp {{ number_format(Auth::user()->vendorBalance->balance ?? 0, 0, ',', '.') }}
-</p>
-            </div>
 
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
-                <h3 class="text-lg font-medium text-gray-700">Produk Aktif</h3>
-                <p class="text-2xl font-bold mt-2 text-blue-900">8</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
-                <h3 class="text-lg font-medium text-gray-700">Pendapatan</h3>
-                <p class="text-2xl font-bold mt-2 text-yellow-600">Rp 5.250.000</p>
-            </div>
-        </div>
-
-        <!-- Ringkasan -->
-        <div class="mt-8 bg-white p-6 rounded-xl shadow">
-            <h3 class="text-lg font-semibold text-gray-700 mb-4">Ringkasan Vendor</h3>
-            <p class="text-gray-600">Di sini Anda dapat menampilkan grafik penjualan, laporan pesanan, atau update produk terbaru.</p>
-        </div>
-    </main>
 
 </body>
 <script>
@@ -138,5 +123,28 @@ document.getElementById('logoutButton').addEventListener('click', function (e) {
     });
 });
 </script>
+
+<script>
+document.getElementById('linkRiwayat').addEventListener('click', function (e) {
+    e.preventDefault(); // cegah reload
+    const url = this.getAttribute('href');
+
+    // tampilkan loading
+    const mainContent = document.getElementById('mainContent');
+    mainContent.innerHTML = '<p class="text-gray-600">Memuat riwayat transaksi...</p>';
+
+    // ambil isi halaman via AJAX
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            mainContent.innerHTML = html;
+        })
+        .catch(error => {
+            console.error(error);
+            mainContent.innerHTML = '<p class="text-red-500">Gagal memuat riwayat.</p>';
+        });
+});
+</script>
+
 
 </html>

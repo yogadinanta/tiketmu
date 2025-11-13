@@ -39,12 +39,12 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <img src="https://assets.loket.com/images/ss/1758095817_zV3svk.png" alt="Promo 2"
+                    <img src="https://assets.loket.com/images/ss/1759377873_UnDE3t.jpg" alt="Promo 2"
                         class="w-full h-auto object-cover rounded-xl">
                 </div>
 
                                 <div class="swiper-slide">
-                    <img src="https://assets.loket.com/images/ss/1758095817_zV3svk.png" alt="Promo 2"
+                    <img src="https://assets.loket.com/images/ss/1761818436_48TSLo.jpg" alt="Promo 2"
                         class="w-full h-auto object-cover rounded-xl">
                 </div>
 
@@ -64,6 +64,11 @@
         </div>
     </div>
 </section>
+
+@include ('partials.event')
+
+
+
 
 <!-- Swiper JS (CDN) -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -94,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-
+@include ('layouts/footer')
 
 </body>
 </html>
