@@ -3,7 +3,7 @@
 @section('title', $event->title)
 
 @section('content')
-<div class="max-w-6xl mx-auto p-6 md:p-10 bg-[#f8fafc] min-h-screen">
+<div class="max-w-6xl rounded-2xl shadow-2xl mx-auto p-6 md:p-10 bg-[#f8fafc] min-h-screen">
     {{-- GRID 2 KOLOM --}}
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {{-- === KOLOM KIRI (GAMBAR + DETAIL) === --}}

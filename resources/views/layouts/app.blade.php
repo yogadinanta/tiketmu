@@ -25,10 +25,10 @@
     @stack('styles')
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-white text-gray-800">
 
     {{-- ===== HEADER NAVBAR ===== --}}
-    <header class="bg-white shadow-sm" x-data="{ open: false }">
+    <header class="bg-white fixed top-0 left-0 w-full z-50 shadow-sm" x-data="{ open: false }">
         <div class="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-10 py-4">
 
             {{-- LEFT: LOGO + NAV --}}
@@ -140,9 +140,72 @@
     </main>
 
     {{-- ===== FOOTER (opsional) ===== --}}
-    <footer class="mt-16 bg-white border-t text-center py-6 text-gray-500 text-sm">
-        &copy; {{ date('Y') }} Tiketmu. All rights reserved.
-    </footer>
+
+    
+
+<br>
+<br>
+<footer class="bg-[#103552] text-white py-24">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+        <!-- Logo & Deskripsi -->
+        <div>
+            <h2 class="text-2xl font-bold mb-2">Tiketmu</h2>
+            <p class="text-sm opacity-80">Your Professional Ticketing Partner</p>
+        </div>
+
+        <!-- Tentang Kami -->
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Tentang Kami</h3>
+            <ul class="space-y-2 text-sm opacity-90">
+                <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+                <li><a href="#" class="hover:underline">Panduan Penyelenggara</a></li>
+                <li><a href="#" class="hover:underline">Hubungi Kami</a></li>
+                <li><a href="#" class="hover:underline">Biaya</a></li>
+            </ul>
+        </div>
+
+        <!-- Informasi -->
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Informasi</h3>
+            <ul class="space-y-2 text-sm opacity-90">
+                <li><a href="#" class="hover:underline">Syarat & Ketentuan</a></li>
+                <li><a href="#" class="hover:underline">Kebijakan Privasi & Pemrosesan Data</a></li>
+                <li><a href="#" class="hover:underline">FAQ</a></li>
+                <li><a href="#" class="hover:underline">Tiket Gelang</a></li>
+            </ul>
+        </div>
+
+        <!-- Kategori Event -->
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Kategori Event</h3>
+            <ul class="space-y-2 text-sm opacity-90">
+                <li><a href="#" class="hover:underline">Musik</a></li>
+                <li><a href="#" class="hover:underline">Pameran</a></li>
+                <li><a href="#" class="hover:underline">Wahana</a></li>
+                <li><a href="#" class="hover:underline">Olahraga</a></li>
+                <li><a href="#" class="hover:underline">Semua Kategori</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Garis Pemisah -->
+    <div class="border-t border-white/20 my-8"></div>
+
+    <!-- Copyright & Sosial Media -->
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm">
+        <p class="mb-4 md:mb-0 opacity-80"> &copy; {{ date('Y') }} Tiketmu. Hak Cipta Dilindungi.</p>
+        <div class="flex space-x-5 text-lg">
+            <a href="#" class="hover:text-gray-300"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="hover:text-gray-300"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-gray-300"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="hover:text-gray-300"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="hover:text-gray-300"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="hover:text-gray-300"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="hover:text-gray-300"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </div>
+</footer>
 
     @stack('scripts')
 </body>

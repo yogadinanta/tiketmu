@@ -1,6 +1,7 @@
-<section class="py-16 bg-white overflow-hidden">
+<section class="w-full py-16 bg-[#ffffff] overflow-hidden">
+
   
-  <div class="max-w-7xl mx-auto px-6 text-center relative">
+  <div class="w-full px-6 text-center relative">
 
 
     <div class="swiper mySwiper">

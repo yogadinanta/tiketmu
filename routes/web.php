@@ -93,6 +93,8 @@ Route::delete('/vendor/events/{event}', [EventController::class, 'destroy'])->na
 Route::get('/profile/edit', [UserController::class, 'editProfile'])->name('profile.edit');
 Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('profile.update');
 
+
+// HISTORY SALDO 
 Route::get('/admin/layout/history', [App\Http\Controllers\VendorHistoryController::class, 'index'])
     ->name('admin.layout.history')
     ->middleware('auth');
