@@ -9,6 +9,7 @@
         <th>Nama</th>
         <th>Email</th>
         <th>Role</th>
+        <th>Saldo</th>
         <th>Dibuat Pada</th>
         <th>Aksi</th>
       </tr>
@@ -26,6 +27,11 @@
     <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
   </select>
 </td>
+
+  <!-- === KOLOM SALDO === -->
+    <td>
+        Rp {{ number_format($user->saldo ?? 0, 0, ',', '.') }}
+    </td>
 <style>
   .form-select {
   background-color: #f9fafb;
@@ -93,7 +99,8 @@
             </button>
             <ul class="users-item-dropdown dropdown">
               <li>
-                <a href="{{ route('admin.users.edit', $user->id) }}">Edit</a>
+              <a href="{{ route('admin.user.edit', $user->id) }}">Edit</a>
+
               </li>
               <li>
                 <a href="#" 
@@ -134,6 +141,7 @@
 
   // Menampilkan notifikasi jika ada session success/error
   document.addEventListener('DOMContentLoaded', function() {
+
     @if (session('success'))
       Swal.fire({
         title: 'Berhasil!',
@@ -153,5 +161,6 @@
         confirmButtonColor: '#d33'
       });
     @endif
+
   });
 </script>

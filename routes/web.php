@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorEventController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EditUserController;
 use App\Http\Controllers\VendorHistoryController;
 
 
@@ -95,9 +96,11 @@ Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('p
 
 
 // HISTORY SALDO 
-Route::get('/admin/layout/history', [App\Http\Controllers\VendorHistoryController::class, 'index'])
+Route::get('/admin/layouts/history', [App\Http\Controllers\VendorHistoryController::class, 'index'])
     ->name('admin.layout.history')
     ->middleware('auth');
 
-
+// EDIT USER BY ADMIN ROUTING
+Route::get('/admin/user/edit/{id}', [EditUserController::class, 'edit'])->name('admin.user.edit');
+Route::post('/admin/user/update/{id}', [EditUserController::class, 'update'])->name('admin.user.update');
 

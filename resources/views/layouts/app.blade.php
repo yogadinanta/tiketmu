@@ -142,9 +142,6 @@
     {{-- ===== FOOTER (opsional) ===== --}}
 
     
-
-<br>
-<br>
 <footer class="bg-[#103552] text-white py-24">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
 

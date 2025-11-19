@@ -324,7 +324,7 @@
 
 
  
-         @include('admin.layout.user_list')
+         @include('admin.layouts.user_list')
 
 
           
