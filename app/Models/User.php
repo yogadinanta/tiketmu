@@ -8,6 +8,8 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+
+
     use HasFactory, Notifiable;
 
     /**
@@ -15,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    
     protected $fillable = [
         'name',
         'email',
@@ -22,6 +25,8 @@ class User extends Authenticatable
         'role',
         'profile_photo',
     ];
+
+    
 
     /**
      * Atribut yang disembunyikan saat serialisasi.

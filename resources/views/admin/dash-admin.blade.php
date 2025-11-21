@@ -36,7 +36,7 @@
         <div class="sidebar-head">
             <a href="/" class="logo-wrapper" title="Home">
                 <span class="sr-only">Homee</span>
-                <span class="icon logo" aria-hidden="true"><img src="http://downloader.minipul.com//uploads/logo_admin.svg" alt=""></span>
+                <span class="icon logo" aria-hidden="true"></span>
                 <div class="logo-text">
                     <span class="logo-title">Elegant</span>
                     <span class="logo-subtitle">Dashboard</span>
@@ -45,20 +45,20 @@
             </a>
             <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
                 <span class="sr-only">Toggle menu</span>
-                <span class="icon menu-toggle" aria-hidden="true"><img src="https://downloader.minipul.com//uploads/Arrow-RightCircle.svg" alt=""></span>
+                <span class="icon menu-toggle" aria-hidden="true"></span>
             </button>
         </div>
         <div class="sidebar-body">
             <ul class="sidebar-body-menu">
                 <li>
-                    <a class="active" href="/"><span class="icon home" aria-hidden="true"><img src="http://downloader.minipul.com//uploads/Home-white.svg" alt=""></span>Dashboard</a>
+                    <a class="active" href="/"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                 </li>
                 <li>
                     <a class="show-cat-btn" href="##">
-                        <span class="icon document" aria-hidden="false"><img src="http://downloader.minipul.com//uploads/2%20User.svg" alt=""></span>User
+                        <span class="icon document" aria-hidden="false"></span>User
                         <span class="category__btn transparent-btn" title="Open list">
                             <span class="sr-only">Open list</span>
-                            <span class="icon arrow-down" aria-hidden="true"><img src="http://downloader.minipul.com//uploads/Arrow-DownCircle.svg" alt=""></span>
+                            <span class="icon arrow-down" aria-hidden="true"></span>
                         </span>
                     </a>
                     <ul class="cat-sub-menu">
@@ -73,7 +73,7 @@
                
                 <li>
                     <a href="comments.html">
-                        <span class="icon message" aria-hidden="true"><img src="http://downloader.minipul.com//uploads/Chat.svg" alt=""></span>
+                        <span class="icon message" aria-hidden="true"></span>
                         Comments
                     </a>
                     <span class="msg-counter">7</span>
@@ -257,16 +257,17 @@
               <div class="stat-cards-icon primary">
                 <i data-feather="bar-chart-2" aria-hidden="true"></i>
               </div>
-              <div class="stat-cards-info">
-                <p class="stat-cards-info__num">1478 286</p>
-                <p class="stat-cards-info__title">Total visits</p>
-                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit success">
-                    <i data-feather="trending-up" aria-hidden="true"></i>4.07%
-                  </span>
-                  Last month
-                </p>
-              </div>
+             <div class="stat-cards-info">
+    <p class="stat-cards-info__num">{{ number_format($totalUsers) }}</p>
+    <p class="stat-cards-info__title">Total User</p> 
+    <p class="stat-cards-info__progress">
+        <span class="stat-cards-info__profit success">
+            <i data-feather="trending-up" aria-hidden="true"></i>07%
+        </span>
+        Last month
+    </p>
+</div>
+
             </article>
           </div>
           <div class="col-md-6 col-xl-3">

@@ -11,8 +11,9 @@ class UserController extends Controller
     // Menampilkan semua user
     public function index()
     {
-        $users = User::all();
-        return view('admin.dash-admin', compact('users'));
+    $users = User::all(); // data table
+    $totalUsers = User::count(); // total user
+    return view('admin.dash-admin', compact('users', 'totalUsers'));
     }
 
     // Menampilkan form edit user
