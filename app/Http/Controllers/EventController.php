@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public function show($id)
+    public function show($id, $slug)
     {
         $event = Event::with('vendor')->findOrFail($id);
-        return view('event-detail', compact('event'));
+        return view('home/event-detail', compact('event'));
     }
 
     // DESTROY FUNCION

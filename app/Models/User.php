@@ -18,13 +18,21 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'role',
-        'profile_photo',
-    ];
+protected $fillable = [
+    'saldo',
+    'name', 
+    'email',
+     'password', 
+     'role', 
+     'is_active',
+];
+
+public function penarikans()
+{
+    return $this->hasMany(Penarikan::class);
+}
+
+
 
     
 

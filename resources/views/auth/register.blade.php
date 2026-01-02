@@ -12,9 +12,9 @@
 
     <div class="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-md">
         <div class="text-center mb-6">
-            <img src="https://via.placeholder.com/120x60?text=Tokopay" alt="Tokopay Logo" class="mx-auto mb-4">
+            <img src="https://via.placeholder.com/120x60?text=Tiketmu" alt="Tiketmu Logo" class="mx-auto mb-4">
             <h1 class="text-2xl font-bold text-gray-800">Buat Akun Baru</h1>
-            <p class="text-gray-500 mt-1">Daftar untuk mulai menggunakan Tokopay</p>
+            <p class="text-gray-500 mt-1">Daftar untuk mulai menggunakan Tiketmu</p>
         </div>
 
         <form action="{{ route('register.post') }}" method="POST" class="space-y-5">

@@ -9,19 +9,34 @@ class SaldoHistory extends Model
 {
     use HasFactory;
 
-    protected $table = 'saldo_histories'; // pastikan nama tabel sesuai di database
+    protected $table = 'saldo_histories';
 
     protected $fillable = [
         'user_id',
         'amount',
-        'type',
+        'type',          // tambah | kurang
+        'source',        // deposit | event | admin
+        'reference_id',  // id deposit / event
         'description',
-        'created_at',
     ];
 
-    // Relasi ke user (optional tapi disarankan)
+    protected $casts = [
+        'amount' => 'float',
+    ];
+
+    /**
+     * Relasi ke user
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Relasi ke deposit (jika source = deposit)
+     */
+    public function deposit()
+    {
+        return $this->belongsTo(Deposit::class, 'reference_id');
     }
 }

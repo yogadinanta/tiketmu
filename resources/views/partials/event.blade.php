@@ -5,7 +5,7 @@
 
         @if ($events->count() > 0)
             <!-- WRAPPER SLIDER -->
-            <div class="relative group"> <!-- Gunakan group untuk hover efek -->
+            <div class="relative group"> 
 
                 <!-- Tombol Navigasi -->
                 <button id="prevBtn"
@@ -29,9 +29,15 @@
                     class="flex overflow-x-auto scroll-smooth space-x-6 px-2 py-6 hide-scrollbar">
                     @foreach ($events as $event)
                         <!-- CARD EVENT -->
-                        <a href="{{ route('event.detail', $event->id) }}"
-                           class="group flex-none w-72 bg-white rounded-xl shadow-md 
-                                  hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
+                    
+
+<a href="{{ route('event.detail', [
+    'id' => $event->id,
+    'slug' => Str::slug($event->title)
+]) }}"
+class="group flex-none w-72 bg-white rounded-xl shadow-md 
+       hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
+
 
                             @if ($event->image)
                                 <img src="{{ asset('storage/' . $event->image) }}"

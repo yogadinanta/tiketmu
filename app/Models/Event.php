@@ -26,4 +26,8 @@ class Event extends Model
     {
         return $this->belongsTo(User::class, 'vendor_id');
     }
+        public function orders()
+    {
+        return $this->hasMany(EventOrder::class);
+    }
 }
